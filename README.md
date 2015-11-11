@@ -75,3 +75,6 @@
 ===================================================================================================
 
 ### 03. Camera Control
+* Creation of an empty GameObject called CameraRig
+	* New parent of the MainCamera
+	* Scripted to keep both tanks in frustum
