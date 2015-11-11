@@ -41,9 +41,10 @@
 
 #### Prefabs      
 * Dragging configured scene objects from Hierarchy into Project Prefabs folder
-   * and vive versa
+   * and vice versa
 * Prefab options: Select, Revert, Apply 
    * between prefab & scene object linkage
+   * Applying changes from changed Hierarchy/Scene game objects to prefabs.
 
 #### Particle Systems
 * World vs. Local simulation space
@@ -51,12 +52,22 @@
 * Various options for behaviour
 
 #### Scripting
-* TankMovement (inherits from MonoBehavior)
-   * Script Component for Tank GameObject to control its movement
-   * MonoBehaviour Event methods
+* Script editing, compiling, serializing workflow in Unity
+* Console window messages for debugging.
+* Public vs. Private fields/member variables
+   * relation to Inspector view (public fields show up for editing & populating references)
+   * UnassignedReferenceExceptions when forgetting to assign reference in Inspector panel.
+* Inspector serialized values override values assigned in the script's public/serializable variables.
+* Dynamically referencing & manipulating Components at runtime
 * Variable naming conventions
    * e.g. m_Name denotes class member variable (scoping mnemonic)
-* Public vs. Private fields/member variables
-   * relation to Inspector view
-*
 
+* TankMovement (inherits from MonoBehavior)
+   * Script Component for Tank GameObject to control its movement
+   * coding MonoBehaviour Event methods (Awake, Start, Update, etc)
+* Vector manipulation math for Rigidbody movement by applying forces via method calls
+* Quaternion represenatation in Unity for rotations of Transformations
+   *  Quaternion.Euler() method for easy euler angle conversions
+
+
+### 03. Camera Control
