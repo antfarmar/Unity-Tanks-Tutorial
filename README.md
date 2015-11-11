@@ -3,7 +3,7 @@
 
 ===================================================================================================
 
-### 01. Scene Setup
+### [01. Scene Setup](http://unity3d.com/learn/tutorials/projects/tanks-tutorial/scene-setup?playlist=20081)
 #### General
 * Dragging models into scene or hierarchy
 * Frame selecting: dbl click GO, 'F' key in scene
@@ -17,7 +17,7 @@
  
 ===================================================================================================
 
-### 02. Tank Creation & Control
+### [02. Tank Creation & Control](http://unity3d.com/learn/tutorials/projects/tanks-tutorial/tank-creation-control?playlist=20081)
 #### General
 * Layers
    * For collider interaction isolation
@@ -74,7 +74,18 @@
 
 ===================================================================================================
 
-### 03. Camera Control
-* Creation of an empty GameObject called CameraRig
-	* New parent of the MainCamera
-	* Scripted to keep both tanks in frustum
+### 03. [Camera Control] (http://unity3d.com/learn/tutorials/projects/tanks-tutorial/scene-setup?playlist=20081)
+* Creation of an empty GameObject called CameraRig (which will contain a Script Component: CameraControl.cs)
+	* New parent of the existing MainCamera
+* Scripted to keep both tanks in view: Pan and Zoom (resize frustrum)
+	* Tanks will stay in camera's frustum (area b/w near & far clip plane)
+	* Perspective frustrum: variable size clip planes
+	* Orthographic frustum: same size clip planes, hence no change in scale over distance
+	* Orthographic Camera size in relation to aspect ratio (16:9) & aspect (1.77).
+* GameObject.GetComponentInChildren<ComponentType>() method OK if child component type is unique.
+* [HideInInspector] attribute to prevent public member from being serialized to Inspector.
+
+
+### 04. [Camera Health] (http://unity3d.com/learn/tutorials/projects/tanks-tutorial/tank-health?playlist=20081)
+*
+*
