@@ -65,7 +65,6 @@
 * Dynamically referencing & manipulating Components at runtime
 * Variable naming conventions
    * e.g. m_Name denotes class member variable (scoping mnemonic)
-
 * TankMovement (inherits from MonoBehavior)
    * Script Component for Tank GameObject to control its movement
    * coding MonoBehaviour Event methods (Awake, Start, Update, etc)
