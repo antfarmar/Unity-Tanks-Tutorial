@@ -1,6 +1,8 @@
 # Unity Tanks Tutorial
 ## Concepts Learned
 
+===================================================================================================
+
 ### 01. Scene Setup
 #### General
 * Dragging models into scene or hierarchy
@@ -12,6 +14,8 @@
     * Baking (bg process)
     * Low resolution for lowpoly models
 * Ambient light source & color vs. skybox
+ 
+===================================================================================================
 
 ### 02. Tank Creation & Control
 #### General
@@ -69,5 +73,6 @@
 * Quaternion represenatation in Unity for rotations of Transformations
    *  Quaternion.Euler() method for easy euler angle conversions
 
+===================================================================================================
 
 ### 03. Camera Control
