@@ -49,6 +49,8 @@
 * Prefab options: Select, Revert, Apply 
    * between prefab & scene object linkage
    * Applying changes from changed Hierarchy/Scene game objects to prefabs.
+   * Blue vs grey text in Hierarchy: Saved vs. unsaved changes to prefabs from scene gameobjects
+		* Also ***bold*** fields in Inspector are unsaved chages to prefabs
 
 #### Particle Systems
 * World vs. Local simulation space
@@ -86,7 +88,8 @@
 * [HideInInspector] attribute to prevent public member from being serialized to Inspector.
 
 
-### 04. [Camera Health](http://unity3d.com/learn/tutorials/projects/tanks-tutorial/tank-health?playlist=20081)
+### 04. [Tank Health](http://unity3d.com/learn/tutorials/projects/tanks-tutorial/tank-health?playlist=20081)
+* ***Setup tank damage, update UI heal slider based on health value, tank deactivation on death***
 * Using a Unity UI Slider as a radial health bar.
 * UI Elements: Canvas, Slider, EventSystem
 * EventSystem Input Module component in Inspector
@@ -94,3 +97,8 @@
 * Canvas Scaler (Script) component for helping developing multiresolution apps
 * Canvas component Render modes: Screenspace vs. Worldspace
 * Rect Transform component in all UI elements.
+* Anchor presets button to edit anchors (Shift/Alt)
+* Top to Bottom rendering of UI child elements of Canvas (as found in the Hierarchy)
+* Instantiating inactive game objects (e.g. particle systems) to cache them until ready for use.
+	* Also, setting them inactive again instead of destroying them then reinstantiating again.
+	* Caching like this (inactive->active) saves on garbage collection calls.
