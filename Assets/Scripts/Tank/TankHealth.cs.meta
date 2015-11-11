@@ -1,10 +1,15 @@
 fileFormatVersion: 2
 guid: 8326b9dca06e5bc4885942c9371f51f1
-timeCreated: 1431010517
+timeCreated: 1427120507
 licenseType: Store
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - slider: {instanceID: 0}
+  - bar: {instanceID: 0}
+  - steamParticles: {instanceID: 0}
+  - explosionParticles: {fileID: 19874418, guid: 6bc6d0dd8b8428e4ca316513f2cf13c6,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
