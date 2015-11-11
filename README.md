@@ -3,7 +3,7 @@
 
 ===================================================================================================
 
-### [01. Scene Setup](http://unity3d.com/learn/tutorials/projects/tanks-tutorial/scene-setup?playlist=20081)
+### 01. [Scene Setup](http://unity3d.com/learn/tutorials/projects/tanks-tutorial/scene-setup?playlist=20081)
 #### General
 * Dragging models into scene or hierarchy
 * Frame selecting: dbl click GO, 'F' key in scene
@@ -17,7 +17,7 @@
  
 ===================================================================================================
 
-### [02. Tank Creation & Control](http://unity3d.com/learn/tutorials/projects/tanks-tutorial/tank-creation-control?playlist=20081)
+### 02. [Tank Creation & Control](http://unity3d.com/learn/tutorials/projects/tanks-tutorial/tank-creation-control?playlist=20081)
 #### General
 * Layers
    * For collider interaction isolation
@@ -37,9 +37,9 @@
       * Trigger vs. Physical events
       * proper sizing for model
    * Audio Source
-      * Populating references using "Circle Select" in Inspector
-         * versus dragging from Project Assets folders
-      * Empty references to be populated at runtime via scripting
+        * Populating references using "Circle Select" in Inspector
+        * versus dragging from Project Assets folders
+        * Empty references to be populated at runtime via scripting
    * Scripts
       * are also Components (provided they extend from Monobehaviour)
 
@@ -86,6 +86,11 @@
 * [HideInInspector] attribute to prevent public member from being serialized to Inspector.
 
 
-### 04. [Camera Health] (http://unity3d.com/learn/tutorials/projects/tanks-tutorial/tank-health?playlist=20081)
-*
-*
+### 04. [Camera Health](http://unity3d.com/learn/tutorials/projects/tanks-tutorial/tank-health?playlist=20081)
+* Using a Unity UI Slider as a radial health bar.
+* UI Elements: Canvas, Slider, EventSystem
+* EventSystem Input Module component in Inspector
+    * Axis setup along with InputManager
+* Canvas Scaler (Script) component for helping developing multiresolution apps
+* Canvas component Render modes: Screenspace vs. Worldspace
+* Rect Transform component in all UI elements.
