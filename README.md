@@ -6,13 +6,13 @@
 ### 01. [Scene Setup](http://unity3d.com/learn/tutorials/projects/tanks-tutorial/scene-setup?playlist=20081)
 #### General
 * Dragging models into scene or hierarchy
-* Frame selecting: dbl click GO, 'F' key in scene
+* Frame selecting: dbl-click GameObject, or 'F' key in scene
 
 #### Lighting
-* Dedicated window for options
+* Dedicated window for lighting options
 * Precomputed Real Time GI
     * Baking (bg process)
-    * Low resolution for lowpoly models
+    * Low resolution OK for lowpoly models
 * Ambient light source & color vs. skybox
  
 ===================================================================================================
@@ -77,7 +77,7 @@
 ===================================================================================================
 
 ### 03. [Camera Control] (http://unity3d.com/learn/tutorials/projects/tanks-tutorial/scene-setup?playlist=20081)
-* Creation of an empty GameObject called CameraRig (which will contain a Script Component: CameraControl.cs)
+* ***Creation of an empty GameObject called CameraRig (which will contain a Script Component: CameraControl.cs)***
 	* New parent of the existing MainCamera
 * Scripted to keep both tanks in view: Pan and Zoom (resize frustrum)
 	* Tanks will stay in camera's frustum (area b/w near & far clip plane)
@@ -87,6 +87,7 @@
 * GameObject.GetComponentInChildren<ComponentType>() method OK if child component type is unique.
 * [HideInInspector] attribute to prevent public member from being serialized to Inspector.
 
+===================================================================================================
 
 ### 04. [Tank Health](http://unity3d.com/learn/tutorials/projects/tanks-tutorial/tank-health?playlist=20081)
 * ***Setup tank damage, update UI heal slider based on health value, tank deactivation on death***
@@ -102,3 +103,73 @@
 * Instantiating inactive game objects (e.g. particle systems) to cache them until ready for use.
 	* Also, setting them inactive again instead of destroying them then reinstantiating again.
 	* Caching like this (inactive->active) saves on garbage collection calls.
+
+===================================================================================================
+
+### 05. [Shell Creation](http://unity3d.com/learn/tutorials/projects/tanks-tutorial/shell-creation?playlist=20081)
+* ***Create a ballistic shell for the tank & a radius for explosion forces***
+* Collider triggers for simply creating callbacks in scripts to react to, instead of physical forces.
+* Physics.OverlapSphere(pos,radius,layer) method to get an array of colliders touching/inside a specified sphere.
+* Rigidbody.AddExplosionForce(force,pos,radius) to simulate explosive forces.
+* Component references can also be used to get other component references on same GameObject via GetComponent<>().
+
+===================================================================================================
+
+### 06. [Firing Shells](http://unity3d.com/learn/tutorials/projects/tanks-tutorial/firing-shells?playlist=20081)
+* ***How to fire projectiles, and make a UI & sound effect to accompany the mechanic.***
+* Reappropriate a UI Slider to make an aiming guide.
+* Shells are unoptimally instantiated and destroyed every fire. Object pooling would solve this.
+
+===================================================================================================
+
+### 07. [Game Managers](http://unity3d.com/learn/tutorials/projects/tanks-tutorial/game-managers?playlist=20081)
+* ***Game loop architecture using coroutines and textual UI creation for messaging players.***
+* Text UI GameObject creation and usage, along with Shadow script component for effect.
+* [Serializable] attribute on classes are serialized for view in the Inspector.
+* ColorUtility.ToHtmlStringRGB(Color) for converting an rgb color to HTML code for rich text.
+* Coroutine are used to cleverly manage the main game loop.
+
+**** Coroutines
+* A function that can suspend its execution (yield) until the given `YieldInstruction` finishes.
+* Can be used as a way to spread an effect over a period time
+* It is also a **useful optimization** since it allows you to determine at what rate any function get called.
+* Normal coroutine updates are run after the *Update()* function returns.
+
+* ***Return types & different uses of Coroutines:***
+
+``` csharp
+yield                       // The coroutine will continue after all Update functions have been called on the next frame.
+yield WaitForSeconds        // Continue after a specified time delay, after all Update functions have been called for the frame
+yield WaitForFixedUpdate    // Continue after all FixedUpdate has been called on all scripts
+yield WaitForEndOfFrame     // Continue after all FixedUpdate has been called on all scripts
+yield WWW                   // Continue after a WWW download has completed.
+yield StartCoroutine        // Chains the coroutine, and will wait for the MyFunc coroutine to complete first.
+```
+
+* Coroutines also admit a nice, slick, readable game loop:
+
+```csharp
+void Start() {
+    // ... other start code ...
+    StartCoroutine (GameLoop()); // Let's play!
+}
+
+// This is called from start and will run each phase of the game one after another.
+private IEnumerator GameLoop() {
+    yield return StartCoroutine (LevelStart()); // Start the level: Initialize, do some fun GUI stuff, ..., WaitForSeconds if setup too fast.
+    yield return StartCoroutine (LevelPlay()); // Let the user(s) play the level until a win or game over condition is met, then return back here.
+    yield return StartCoroutine (LevelEnd()); // Find out if some user(s) "won" the level or not. Also, do some cleanup.
+    
+    if (WinCondition) { // Check if game level progression conditions were met.
+        Application.LoadLevel(++level); // or Application.LoadLevel(Application.loadedLevel) if using same scene
+    } else { // Let the user retry the level by restarting this (non-yielding) coroutine again.
+        StartCoroutine (GameLoop());
+    }
+}
+```
+
+===================================================================================================
+
+### 08. [Audio Mixing](http://unity3d.com/learn/tutorials/projects/tanks-tutorial/audio-mixing?playlist=20081)
+* ***Balance the audio in the game with a dynamic mix where sound effects duck the volume of the music.***
+* 
