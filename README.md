@@ -4,6 +4,8 @@
 ===================================================================================================
 
 ### 01. [Scene Setup](http://unity3d.com/learn/tutorials/projects/tanks-tutorial/scene-setup?playlist=20081)
+***Basic scene setup***
+
 #### General
 * Dragging models into scene or hierarchy
 * Frame selecting: dbl-click GameObject, or 'F' key in scene
@@ -18,6 +20,8 @@
 ===================================================================================================
 
 ### 02. [Tank Creation & Control](http://unity3d.com/learn/tutorials/projects/tanks-tutorial/tank-creation-control?playlist=20081)
+***How to add the tank artwork and components to let the player control the tank.***
+
 #### General
 * Layers
    * For collider interaction isolation
@@ -77,11 +81,12 @@
 ===================================================================================================
 
 ### 03. [Camera Control] (http://unity3d.com/learn/tutorials/projects/tanks-tutorial/scene-setup?playlist=20081)
-***Creation of an empty GameObject called CameraRig (which will contain a Script Component: CameraControl.cs)***
+***How to create a Camera rig which pans and zooms to keep all tanks on-screen at once.***
 
+* Creation of an empty GameObject called CameraRig to house a Script Component: CameraControl.cs
 * Rig becomes parent of the existing MainCamera
-* Scripted to keep both tanks in view: Pan and Zoom (resize frustum)
-	* Tanks will stay in camera's frustum (area b/w near & far clip plane)
+* Scripted to keep both tanks in view: Pan and Zoom (i.e. move & resize frustum)
+	* Tanks will stay in camera's frustum: area b/w near & far clip plane
 	* Perspective frustum: variable size clip planes
 	* Orthographic frustum: same size clip planes, hence no change in scale over distance
 	* Orthographic Camera size in relation to aspect ratio (16:9) & aspect (1.77).
@@ -185,3 +190,5 @@ private IEnumerator GameLoop() {
 	* Default setup was to output clips straight to the AudioListener, without mixing.
 * A "Duck Volume" effect is then used to lower the bg music when sfx are playing.
 	* The SFX group is setup to "Send Effect" its signal to the Music group's "Duck Volume" effect.
+
+===================================================================================================
