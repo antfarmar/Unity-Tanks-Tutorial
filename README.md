@@ -1,7 +1,7 @@
 # Unity Tanks Tutorial
-## Concepts Learned
-===================================================================================================
-# Index
+## *Concepts Learned In Each Phase*
+
+## Index
 1. [Scene Setup](#01-scene-setup)
 2. [Tank Creation & Control](#02-tank-creation--control)
 3. [Camera Control](#03-camera-control)
@@ -17,13 +17,13 @@
 ***Basic scene setup***
 
 #### General
-* Dragging models into scene or hierarchy
-* Frame selecting: dbl-click GameObject, or 'F' key in scene
+* Dragging asset models into the scene or hierarchy
+* Frame selecting game objects in scene: dbl-click game object in Hierarchy, or 'F' key in Scene when selected
 
 #### Lighting
 * Dedicated window for lighting options
-* Precomputed Real Time GI
-    * Baking (bg process)
+* Precomputed Real Time GI selected for use
+    * Baking the lighting (a lengthy bg process)
     * Low resolution OK for lowpoly models
 * Ambient light source & color vs. skybox
  
