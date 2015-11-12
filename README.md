@@ -77,8 +77,9 @@
 ===================================================================================================
 
 ### 03. [Camera Control] (http://unity3d.com/learn/tutorials/projects/tanks-tutorial/scene-setup?playlist=20081)
-* ***Creation of an empty GameObject called CameraRig (which will contain a Script Component: CameraControl.cs)***
-	* New parent of the existing MainCamera
+***Creation of an empty GameObject called CameraRig (which will contain a Script Component: CameraControl.cs)***
+
+* Rig becomes parent of the existing MainCamera
 * Scripted to keep both tanks in view: Pan and Zoom (resize frustrum)
 	* Tanks will stay in camera's frustum (area b/w near & far clip plane)
 	* Perspective frustrum: variable size clip planes
@@ -90,7 +91,8 @@
 ===================================================================================================
 
 ### 04. [Tank Health](http://unity3d.com/learn/tutorials/projects/tanks-tutorial/tank-health?playlist=20081)
-* ***Setup tank damage, update UI heal slider based on health value, tank deactivation on death***
+***Setup tank damage, update UI heal slider based on health value, tank deactivation on death***
+
 * Using a Unity UI Slider as a radial health bar.
 * UI Elements: Canvas, Slider, EventSystem
 * EventSystem Input Module component in Inspector
@@ -107,7 +109,8 @@
 ===================================================================================================
 
 ### 05. [Shell Creation](http://unity3d.com/learn/tutorials/projects/tanks-tutorial/shell-creation?playlist=20081)
-* ***Create a ballistic shell for the tank & a radius for explosion forces***
+***Create a ballistic shell for the tank & a radius for explosion forces***
+
 * Collider triggers for simply creating callbacks in scripts to react to, instead of physical forces.
 * Physics.OverlapSphere(pos,radius,layer) method to get an array of colliders touching/inside a specified sphere.
 * Rigidbody.AddExplosionForce(force,pos,radius) to simulate explosive forces.
@@ -116,28 +119,30 @@
 ===================================================================================================
 
 ### 06. [Firing Shells](http://unity3d.com/learn/tutorials/projects/tanks-tutorial/firing-shells?playlist=20081)
-* ***How to fire projectiles, and make a UI & sound effect to accompany the mechanic.***
+***How to fire projectiles, and make a UI & sound effect to accompany the mechanic.***
+
 * Reappropriate a UI Slider to make an aiming guide.
-* Shells are unoptimally instantiated and destroyed every fire. Object pooling would solve this.
+* Shells are unoptimally instantiated and destroyed every fire. Object pooling pattern would solve this.
 
 ===================================================================================================
 
 ### 07. [Game Managers](http://unity3d.com/learn/tutorials/projects/tanks-tutorial/game-managers?playlist=20081)
-* ***Game loop architecture using coroutines and textual UI creation for messaging players.***
+***Game loop architecture using coroutines and textual UI creation for messaging players.***
+
 * Text UI GameObject creation and usage, along with Shadow script component for effect.
 * [Serializable] attribute on classes are serialized for view in the Inspector.
 * ColorUtility.ToHtmlStringRGB(Color) for converting an rgb color to HTML code for rich text.
 * Coroutine are used to cleverly manage the main game loop.
 
-**** Coroutines
+#### Coroutines
 * A function that can suspend its execution (yield) until the given `YieldInstruction` finishes.
 * Can be used as a way to spread an effect over a period time
 * It is also a **useful optimization** since it allows you to determine at what rate any function get called.
 * Normal coroutine updates are run after the *Update()* function returns.
 
-* ***Return types & different uses of Coroutines:***
+**Return types & different uses of Coroutines:**
 
-``` csharp
+```csharp
 yield                       // The coroutine will continue after all Update functions have been called on the next frame.
 yield WaitForSeconds        // Continue after a specified time delay, after all Update functions have been called for the frame
 yield WaitForFixedUpdate    // Continue after all FixedUpdate has been called on all scripts
