@@ -32,7 +32,7 @@
       * req'd for Physics system
       * constraints on axes (position/rotation)
       * Kinematics: turn on/off (receive physical forces/no forces)
-   *  Colliders (primitve)
+   *  Colliders (primitive)
       * reports physics events (collisions) to Rigidbody
       * Trigger vs. Physical events
       * proper sizing for model
@@ -49,13 +49,13 @@
 * Prefab options: Select, Revert, Apply 
    * between prefab & scene object linkage
    * Applying changes from changed Hierarchy/Scene game objects to prefabs.
-   * Blue vs grey text in Hierarchy: Saved vs. unsaved changes to prefabs from scene gameobjects
-		* Also ***bold*** fields in Inspector are unsaved chages to prefabs
+   * Blue vs gray text in Hierarchy: Saved vs. unsaved changes to prefabs from scene gameobjects
+		* Also ***bold*** fields in Inspector are unsaved changes to prefabs
 
 #### Particle Systems
 * World vs. Local simulation space
 * Simulate over time vs. distance
-* Various options for behaviour
+* Various options for behavior
 
 #### Scripting
 * Script editing, compiling, serializing workflow in Unity
@@ -71,8 +71,8 @@
    * Script Component for Tank GameObject to control its movement
    * coding MonoBehaviour Event methods (Awake, Start, Update, etc)
 * Vector manipulation math for Rigidbody movement by applying forces via method calls
-* Quaternion represenatation in Unity for rotations of Transformations
-   *  Quaternion.Euler() method for easy euler angle conversions
+* Quaternion representation in Unity for rotations of Transformations
+   *  Quaternion.Euler() method for easy Euler angle conversions
 
 ===================================================================================================
 
@@ -80,9 +80,9 @@
 ***Creation of an empty GameObject called CameraRig (which will contain a Script Component: CameraControl.cs)***
 
 * Rig becomes parent of the existing MainCamera
-* Scripted to keep both tanks in view: Pan and Zoom (resize frustrum)
+* Scripted to keep both tanks in view: Pan and Zoom (resize frustum)
 	* Tanks will stay in camera's frustum (area b/w near & far clip plane)
-	* Perspective frustrum: variable size clip planes
+	* Perspective frustum: variable size clip planes
 	* Orthographic frustum: same size clip planes, hence no change in scale over distance
 	* Orthographic Camera size in relation to aspect ratio (16:9) & aspect (1.77).
 * GameObject.GetComponentInChildren<ComponentType>() method OK if child component type is unique.
@@ -121,7 +121,7 @@
 ### 06. [Firing Shells](http://unity3d.com/learn/tutorials/projects/tanks-tutorial/firing-shells?playlist=20081)
 ***How to fire projectiles, and make a UI & sound effect to accompany the mechanic.***
 
-* Reappropriate a UI Slider to make an aiming guide.
+* Re-appropriate a UI Slider to make an aiming guide.
 * Shells are unoptimally instantiated and destroyed every fire. Object pooling pattern would solve this.
 
 ===================================================================================================
@@ -136,9 +136,9 @@
 
 #### Coroutines
 * A function that can suspend its execution (yield) until the given `YieldInstruction` finishes.
-* Can be used as a way to spread an effect over a period time
-* It is also a **useful optimization** since it allows you to determine at what rate any function get called.
 * Normal coroutine updates are run after the *Update()* function returns.
+* Can be used as a way to spread an effect over a period time
+* It is also a **useful optimization** since it also allows you to determine at what rate any function gets called.
 
 **Return types & different uses of Coroutines:**
 
@@ -151,7 +151,7 @@ yield WWW                   // Continue after a WWW download has completed.
 yield StartCoroutine        // Chains the coroutine, and will wait for the MyFunc coroutine to complete first.
 ```
 
-* Coroutines also admit a nice, slick, readable game loop:
+**Coroutines also admit a nice, slick, readable game loop:**
 
 ```csharp
 void Start() {
@@ -162,8 +162,8 @@ void Start() {
 // This is called from start and will run each phase of the game one after another.
 private IEnumerator GameLoop() {
     yield return StartCoroutine (LevelStart()); // Start the level: Initialize, do some fun GUI stuff, ..., WaitForSeconds if setup too fast.
-    yield return StartCoroutine (LevelPlay()); // Let the user(s) play the level until a win or game over condition is met, then return back here.
-    yield return StartCoroutine (LevelEnd()); // Find out if some user(s) "won" the level or not. Also, do some cleanup.
+    yield return StartCoroutine (LevelPlay());  // Let the user(s) play the level until a win or game over condition is met, then return back here.
+    yield return StartCoroutine (LevelEnd());   // Find out if some user(s) "won" the level or not. Also, do some cleanup.
     
     if (WinCondition) { // Check if game level progression conditions were met.
         Application.LoadLevel(++level); // or Application.LoadLevel(Application.loadedLevel) if using same scene
@@ -176,5 +176,12 @@ private IEnumerator GameLoop() {
 ===================================================================================================
 
 ### 08. [Audio Mixing](http://unity3d.com/learn/tutorials/projects/tanks-tutorial/audio-mixing?playlist=20081)
-* ***Balance the audio in the game with a dynamic mix where sound effects duck the volume of the music.***
-* 
+***Balance the audio in the game with a dynamic mix where sound effects duck the volume of the music.***
+
+* A MainMix audio mixer default is created that outputs directly to the AudioListener.
+* Audio Mixer window is used to create 3 additional Audio Mixer Groups: Music, SFX, Driving.
+	* Used to modify/mix the audio output before reaching the AudioListener.
+* Audio Source components (in our Prefabs) are setup to output their clips through the Audio Mixer Groups.
+	* Default setup was to output clips straight to the AudioListener, without mixing.
+* A "Duck Volume" effect is then used to lower the bg music when sfx are playing.
+	* The SFX group is setup to "Send Effect" its signal to the Music group's "Duck Volume" effect.
