@@ -147,7 +147,7 @@
 * Text UI GameObject creation and usage, along with Shadow script component for effect.
 * [Serializable] attribute on classes are serialized for view in the Inspector.
 * ColorUtility.ToHtmlStringRGB(Color) for converting an rgb color to HTML code for rich text.
-* Coroutine are used to cleverly manage the main game loop.
+* Coroutines are used to cleverly manage the main game loop.
 
 #### Coroutines
 * A function that can suspend its execution (yield) until the given `YieldInstruction` finishes.
