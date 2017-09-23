@@ -90,7 +90,7 @@
 
 
 
-### 03. [Camera Control] (http://unity3d.com/learn/tutorials/projects/tanks-tutorial/scene-setup?playlist=20081)
+### 03. [Camera Control](http://unity3d.com/learn/tutorials/projects/tanks-tutorial/scene-setup?playlist=20081)
 ***How to create a Camera rig which pans and zooms to keep all tanks on-screen at once.***
 
 * Creation of an empty GameObject called CameraRig to house a Script Component: CameraControl.cs
