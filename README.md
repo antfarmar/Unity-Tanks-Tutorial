@@ -11,7 +11,7 @@
 7. [Game Managers](#07-game-managers)
 8. [Audio Mixing](#08-audio-mixing)
 
-===================================================================================================
+
 
 ### 01. [Scene Setup](http://unity3d.com/learn/tutorials/projects/tanks-tutorial/scene-setup?playlist=20081)
 ***Basic scene setup***
@@ -27,7 +27,7 @@
     * Low resolution OK for lowpoly models
 * Ambient light source & color vs. skybox
  
-===================================================================================================
+
 
 ### 02. [Tank Creation & Control](http://unity3d.com/learn/tutorials/projects/tanks-tutorial/tank-creation-control?playlist=20081)
 ***How to add the tank artwork and components to let the player control the tank.***
@@ -88,7 +88,7 @@
 * Quaternion representation in Unity for rotations of Transformations
    *  Quaternion.Euler() method for easy Euler angle conversions
 
-===================================================================================================
+
 
 ### 03. [Camera Control] (http://unity3d.com/learn/tutorials/projects/tanks-tutorial/scene-setup?playlist=20081)
 ***How to create a Camera rig which pans and zooms to keep all tanks on-screen at once.***
@@ -103,7 +103,7 @@
 * GameObject.GetComponentInChildren<ComponentType>() method OK if child component type is unique.
 * [HideInInspector] attribute to prevent public member from being serialized to Inspector.
 
-===================================================================================================
+
 
 ### 04. [Tank Health](http://unity3d.com/learn/tutorials/projects/tanks-tutorial/tank-health?playlist=20081)
 ***Setup tank damage, update UI heal slider based on health value, tank deactivation on death***
@@ -121,7 +121,7 @@
 	* Also, setting them inactive again instead of destroying them then reinstantiating again.
 	* Caching like this (inactive->active) saves on garbage collection calls.
 
-===================================================================================================
+
 
 ### 05. [Shell Creation](http://unity3d.com/learn/tutorials/projects/tanks-tutorial/shell-creation?playlist=20081)
 ***Create a ballistic shell for the tank & a radius for explosion forces***
@@ -131,7 +131,6 @@
 * Rigidbody.AddExplosionForce(force,pos,radius) to simulate explosive forces.
 * Component references can also be used to get other component references on same GameObject via GetComponent<>().
 
-===================================================================================================
 
 ### 06. [Firing Shells](http://unity3d.com/learn/tutorials/projects/tanks-tutorial/firing-shells?playlist=20081)
 ***How to fire projectiles, and make a UI & sound effect to accompany the mechanic.***
@@ -139,7 +138,6 @@
 * Re-appropriate a UI Slider to make an aiming guide.
 * Shells are unoptimally instantiated and destroyed every fire. Object pooling pattern would solve this.
 
-===================================================================================================
 
 ### 07. [Game Managers](http://unity3d.com/learn/tutorials/projects/tanks-tutorial/game-managers?playlist=20081)
 ***Game loop architecture using coroutines and textual UI creation for messaging players.***
@@ -188,7 +186,6 @@ private IEnumerator GameLoop() {
 }
 ```
 
-===================================================================================================
 
 ### 08. [Audio Mixing](http://unity3d.com/learn/tutorials/projects/tanks-tutorial/audio-mixing?playlist=20081)
 ***Balance the audio in the game with a dynamic mix where sound effects duck the volume of the music.***
@@ -201,4 +198,4 @@ private IEnumerator GameLoop() {
 * A "Duck Volume" effect is then used to lower the bg music when sfx are playing.
 	* The SFX group is setup to "Send Effect" its signal to the Music group's "Duck Volume" effect.
 
-===================================================================================================
+
